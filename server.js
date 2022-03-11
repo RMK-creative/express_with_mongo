@@ -1,11 +1,13 @@
 const express = require("express");
 const mongoose = require("mongoose");
+
 const Student = require("./models/student");
 const app = express();
 const PORT = 3010;
 
-const mongoDB =
-  "mongodb+srv://test:test1@expresstest.rugcr.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
+require("dotenv").config();
+
+const mongoDB = process.env.DB_URL;
 mongoose.connect(mongoDB);
 
 app.get("/", (req, res) => {
